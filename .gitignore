@@ -1,0 +1,20 @@
+# secrets
+.env
+
+# virtualenv
+.venv/
+venv/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+
+# generated output
+out/
+data/patterns.json
+
+# os
+.DS_Store
