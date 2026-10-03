@@ -1,5 +1,5 @@
 // 川上かずき 公式サイト
-// メニュー開閉／ヘッダーの状態とスクロール進捗／スクロール表示／視差／数字のカウントアップ
+// 全画面メニュー／スクロール進捗リングと細いバー／スクロール表示／視差／数字のカウントアップ
 // ※ JavaScript が無くても全文が読めます（動きの待機状態は .js / .reveal-ready が付いた時だけ）
 (function () {
   var root = document.documentElement;
@@ -20,26 +20,40 @@
     start();
   }
 
-  // ---- メニュー ----
-  var header = document.querySelector('.site-header');
-  var toggle = document.querySelector('.nav-toggle');
-  var nav = document.getElementById('site-nav');
-  if (toggle && nav) {
+  // ---- 丸いメニューボタンと全画面メニュー ----
+  var btn = document.querySelector('.menu-btn');
+  var menu = document.getElementById('site-menu');
+  if (btn && menu) {
+    var label = btn.querySelector('.menu-label');
     var setOpen = function (open) {
-      toggle.setAttribute('aria-expanded', String(open));
-      nav.classList.toggle('is-open', open);
-      if (header) header.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      if (label) label.textContent = open ? '閉じる' : 'メニュー';
+      menu.classList.toggle('is-open', open);
+      menu.setAttribute('aria-hidden', String(!open));
+      root.classList.toggle('menu-open', open);
+      if (open) {
+        var first = menu.querySelector('a');
+        if (first) setTimeout(function () { first.focus({ preventScroll: true }); }, 120);
+      }
     };
-    toggle.addEventListener('click', function () {
-      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    btn.addEventListener('click', function () {
+      setOpen(btn.getAttribute('aria-expanded') !== 'true');
     });
-    nav.addEventListener('click', function (e) {
+    menu.addEventListener('click', function (e) {
       if (e.target.closest('a')) setOpen(false);
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { setOpen(false); btn.focus(); }
     });
   }
+
+  // ---- SNS：URL未設定（href="#"）のアイコンは押しても何もしない ----
+  document.querySelectorAll('.sns a[href="#"]').forEach(function (a) {
+    a.removeAttribute('target');
+    a.setAttribute('aria-disabled', 'true');
+    a.addEventListener('click', function (e) { e.preventDefault(); });
+  });
 
   // ---- 順番に表示（data-stagger の中の .reveal に遅延を付ける） ----
   document.querySelectorAll('[data-stagger]').forEach(function (group) {
@@ -89,6 +103,8 @@
 
   // ---- スクロール連動：ヘッダー・進捗バー・トップへ戻る・視差 ----
   var toTop = document.querySelector('.to-top');
+  var header = document.querySelector('.site-header');
+  var miniBar = document.querySelector('.mini-bar');
   var parallax = reduce ? [] : Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
   // メインビジュアルの奥行き（人物・コピー・山並みをスクロール量に応じて別々の速さで動かす）
   var depth = reduce ? [] : Array.prototype.slice.call(document.querySelectorAll('[data-depth]'));
@@ -96,10 +112,8 @@
   var update = function () {
     var y = window.pageYOffset || document.documentElement.scrollTop;
     var max = document.documentElement.scrollHeight - window.innerHeight;
-    if (header) {
-      header.classList.toggle('is-scrolled', y > 8);
-      header.style.setProperty('--progress', max > 0 ? Math.min(y / max, 1).toFixed(4) : '0');
-    }
+    root.style.setProperty('--progress', max > 0 ? Math.min(y / max, 1).toFixed(4) : '0');
+    if (miniBar && header) miniBar.classList.toggle('is-visible', y > header.offsetHeight + 40);
     if (toTop) toTop.classList.toggle('is-visible', y > 700);
     var vh = window.innerHeight;
     if (y < vh * 1.4) {
