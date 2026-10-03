@@ -78,28 +78,41 @@
   };
 
   // ---- スクロールで表示 ----
-  var targets = document.querySelectorAll('.reveal, .reveal-wipe, [data-count]');
+  var targets = Array.prototype.slice.call(document.querySelectorAll('.reveal, .reveal-wipe, [data-count]'));
+  // clip-path で隠している要素は Chrome では「見えていない」扱いになるため、親要素を監視する
+  var watchOf = function (el) { return el.classList.contains('reveal-wipe') ? el.parentElement : el; };
+  var showEl = function (el) {
+    if (el.classList.contains('is-in')) return;
+    el.classList.add('is-in');
+    if (el.hasAttribute('data-count')) countUp(el);
+  };
+  var io = null;
   if (!('IntersectionObserver' in window)) {
-    targets.forEach(function (el) { el.classList.add('is-in'); });
+    targets.forEach(showEl);
+    targets = [];
   } else {
-    // clip-path で隠している要素は Chrome では「見えていない」扱いになるため、親要素を監視する
-    var watched = [];
-    var io = new IntersectionObserver(function (entries) {
+    io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        var i = watched.indexOf(entry.target);
-        var el = i > -1 ? targets[i] : entry.target;
-        el.classList.add('is-in');
-        if (el.hasAttribute('data-count')) countUp(el);
+        targets.forEach(function (el) { if (watchOf(el) === entry.target) showEl(el); });
         io.unobserve(entry.target);
       });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
-    targets.forEach(function (el) {
-      var w = el.classList.contains('reveal-wipe') ? el.parentElement : el;
-      watched.push(w);
-      io.observe(w);
-    });
+    targets.forEach(function (el) { io.observe(watchOf(el)); });
   }
+  // メニューのリンクなどで一気に移動したときに、通り過ぎた要素が隠れたまま残らないようにする
+  var catchUp = function (vh) {
+    if (!targets.length) return;
+    targets = targets.filter(function (el) {
+      if (el.classList.contains('is-in')) return false;
+      if (watchOf(el).getBoundingClientRect().top < vh * 0.9) {
+        showEl(el);
+        if (io) io.unobserve(watchOf(el));
+        return false;
+      }
+      return true;
+    });
+  };
 
   // ---- スクロール連動：ヘッダー・進捗バー・トップへ戻る・視差 ----
   var toTop = document.querySelector('.to-top');
@@ -116,6 +129,7 @@
     if (miniBar && header) miniBar.classList.toggle('is-visible', y > header.offsetHeight + 40);
     if (toTop) toTop.classList.toggle('is-visible', y > 700);
     var vh = window.innerHeight;
+    catchUp(vh);
     if (y < vh * 1.4) {
       depth.forEach(function (el) {
         var d = parseFloat(el.getAttribute('data-depth')) || 0;

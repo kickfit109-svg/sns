@@ -288,7 +288,7 @@ html.menu-open { overflow: hidden; }
 .section-head .lead { margin-top: 18px; color: var(--ink-2); }
 
 /* ---------- 現場 ---------- */
-.genba-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; list-style: none; margin: 0; padding: 0; }
+.genba-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; list-style: none; margin: 0; padding: 0; }
 .genba-card {
   position: relative; overflow: hidden; background: var(--white); border: 1px solid var(--line); border-radius: 22px; padding: 30px 24px 32px;
   transition: transform .55s var(--ease), box-shadow .55s, border-color .55s;
@@ -305,6 +305,7 @@ html.menu-open { overflow: hidden; }
 .genba-card h3 { font-size: 1.16rem; color: var(--ink); margin-bottom: 12px; }
 .genba-card p { font-size: .94rem; color: var(--ink-2); line-height: 1.85; }
 @media (max-width: 1023px) { .genba-grid { grid-template-columns: repeat(2, 1fr); } }
+
 @media (max-width: 599px) { .genba-grid { grid-template-columns: 1fr; } }
 
 .statement { margin: 64px auto 0; max-width: 860px; text-align: center; }
@@ -376,7 +377,7 @@ html.menu-open { overflow: hidden; }
 }
 
 /* ---------- Vision band ---------- */
-.vision-band { position: relative; overflow: hidden; isolation: isolate; background: var(--brand-ink); color: #fff; padding: 124px 0; }
+.vision-band { position: relative; overflow: hidden; isolation: isolate; color: #fff; padding: 124px 0; background: linear-gradient(100deg, rgba(5, 56, 34, .94) 0%, rgba(5, 56, 34, .82) 55%, rgba(5, 56, 34, .55) 100%), url("img/act-rice.webp") center 40% / cover no-repeat, var(--brand-ink); }
 .vision-band::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(700px 420px at 12% 20%, rgba(0, 160, 65, .45), transparent 65%), radial-gradient(600px 400px at 95% 100%, rgba(140, 207, 63, .25), transparent 65%); }
 .vision-rings { position: absolute; z-index: -1; right: -180px; top: 50%; width: 620px; height: 620px; margin-top: -310px; pointer-events: none; }
 .vision-rings span { position: absolute; inset: 0; border-radius: 50%; border: 1px dashed rgba(168, 230, 189, .28); }
@@ -388,6 +389,24 @@ html.menu-open { overflow: hidden; }
 .vision-text { max-width: 760px; font-size: clamp(1.02rem, 2vw, 1.22rem); line-height: 2.1; font-weight: 600; color: rgba(255,255,255,.86); }
 .vision-text strong { display: block; margin-top: 22px; font-family: var(--display); font-size: clamp(1.35rem, 3vw, 2.1rem); line-height: 1.7; color: #fff; letter-spacing: .06em; }
 @media (max-width: 899px) { .vision-band { padding: 88px 0; } .vision-rings { width: 420px; height: 420px; margin-top: -210px; right: -220px; } }
+
+/* ---------- Activity gallery ---------- */
+.gallery { columns: 3 300px; column-gap: 20px; }
+.gallery-item { break-inside: avoid; margin: 0 0 20px; background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px -30px rgba(5, 56, 34, .5); }
+.gallery-item picture { display: block; overflow: hidden; }
+.gallery-item img { width: 100%; height: auto; transition: transform .9s var(--ease); }
+.gallery-item:hover img { transform: scale(1.04); }
+.gallery-item figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 14px 18px 16px; font-size: .92rem; font-weight: 700; color: var(--ink); line-height: 1.6; }
+.gallery-item figcaption span { font-size: 11px; font-weight: 800; letter-spacing: .08em; color: #fff; background: var(--brand-strong); border-radius: 999px; padding: 2px 10px; }
+.gallery-note { margin-top: 6px; font-size: 12.5px; color: var(--ink-3); }
+@media (max-width: 699px) {
+  .gallery { columns: auto; display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 calc(var(--gutter) * -1); padding: 4px var(--gutter) 18px; scrollbar-width: none; }
+  .gallery::-webkit-scrollbar { display: none; }
+  .gallery-item { flex: 0 0 78vw; margin: 0; scroll-snap-align: center; display: flex; flex-direction: column; }
+  .gallery-item picture { aspect-ratio: 4 / 3; }
+  .gallery-item img { height: 100%; object-fit: cover; object-position: 50% 30%; }
+  .gallery-note::before { content: "← 横にスワイプできます　"; color: var(--brand-strong); font-weight: 700; }
+}
 
 /* ---------- Profile ---------- */
 .profile-card { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: start; background: var(--white); border: 1px solid var(--line); border-radius: 26px; padding: 48px; box-shadow: 0 30px 60px -48px rgba(5,56,34,.4); }
@@ -413,6 +432,30 @@ html.menu-open { overflow: hidden; }
   .profile-dl { grid-template-columns: 1fr; }
   .profile-dl dt { padding: 14px 0 0; border-bottom: 0; font-size: .82rem; }
   .profile-dl dd { padding: 2px 0 14px; }
+}
+
+.profile-grid { margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+.pcard { background: var(--white); border: 1px solid var(--line); border-radius: 22px; padding: 30px 30px 28px; }
+.pcard-title { display: flex; align-items: baseline; gap: 12px; font-size: 1.2rem; color: var(--ink); margin-bottom: 18px; }
+.pcard-title-sub { margin-top: 28px; }
+.en-s { font-family: var(--en); font-weight: 600; font-size: 13px; letter-spacing: .2em; color: var(--brand-strong); }
+.pcard-badge { display: inline-block; margin: -4px 0 18px; padding: 4px 14px; border-radius: 999px; background: var(--mint); color: var(--brand-deep); font-size: 13px; font-weight: 800; }
+.edu-steps { list-style: none; margin: 0; padding: 0; position: relative; }
+.edu-steps::before { content: ""; position: absolute; left: 7px; top: 12px; bottom: 12px; width: 2px; background: linear-gradient(var(--brand), var(--brand-lime)); border-radius: 2px; }
+.edu-steps li { position: relative; padding: 7px 0 7px 30px; font-weight: 700; color: var(--ink); }
+.edu-steps li::before { content: ""; position: absolute; left: 0; top: 50%; width: 16px; height: 16px; margin-top: -8px; border-radius: 50%; background: #fff; border: 3px solid var(--brand); }
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li { display: grid; grid-template-columns: 6.6em 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--mint-3); font-size: .95rem; line-height: 1.7; }
+.timeline li:last-child { border-bottom: 0; }
+.tl-year { font-family: var(--en); font-weight: 600; font-size: 13.5px; color: var(--brand-strong); letter-spacing: .02em; padding-top: 1px; }
+.tl-text { color: var(--ink); }
+.check-list { list-style: none; margin: 0; padding: 0; }
+.check-list li { position: relative; padding: 6px 0 6px 26px; color: var(--ink); font-size: .95rem; }
+.check-list li::before { content: ""; position: absolute; left: 0; top: .72em; width: 16px; height: 16px; border-radius: 50%; background: var(--mint-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.2 2.2 4.8-5' fill='none' stroke='%23007a35' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; }
+@media (max-width: 899px) {
+  .profile-grid { grid-template-columns: 1fr; gap: 14px; }
+  .pcard { padding: 22px 18px; }
+  .timeline li { grid-template-columns: 1fr; gap: 0; }
 }
 
 .party { margin-top: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 28px; border-radius: 18px; background: var(--white); border: 1px solid var(--mint-3); }
@@ -614,6 +657,8 @@ td small { color: var(--ink-3); }
   /* --- スクロールで表示 --- */
   .reveal-ready .reveal { opacity: 0; translate: 0 32px; transition: opacity .9s var(--ease), translate 1s var(--ease); transition-delay: calc(var(--i, 0) * 110ms); }
   .reveal-ready .reveal.is-in { opacity: 1; translate: 0 0; }
+  /* スマホの横スクロールのギャラリーは、画面外の写真も最初から表示 */
+  @media (max-width: 699px) { .reveal-ready .gallery .reveal { opacity: 1; translate: 0 0; } }
   .reveal-ready .reveal-wipe { clip-path: inset(0 0 100% 0 round 26px); transition: clip-path 1.3s var(--ease); }
   .reveal-ready .reveal-wipe.is-in { clip-path: inset(0 0 0 0 round 26px); }
   .reveal-ready .section-head .en, .reveal-ready .guide-promo .en, .reveal-ready .page-hero .en { clip-path: inset(0 100% 0 0); transition: clip-path 1.2s var(--ease) .1s; }
