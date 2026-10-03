@@ -398,14 +398,40 @@ html.menu-open { overflow: hidden; }
 .gallery-item:hover img { transform: scale(1.04); }
 .gallery-item figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 14px 18px 16px; font-size: .92rem; font-weight: 700; color: var(--ink); line-height: 1.6; }
 .gallery-item figcaption span { font-size: 11px; font-weight: 800; letter-spacing: .08em; color: #fff; background: var(--brand-strong); border-radius: 999px; padding: 2px 10px; }
-.gallery-note { margin-top: 6px; font-size: 12.5px; color: var(--ink-3); }
+.gallery-note { display: none; margin-top: 6px; font-size: 12.5px; color: var(--ink-3); }
 @media (max-width: 699px) {
   .gallery { columns: auto; display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 calc(var(--gutter) * -1); padding: 4px var(--gutter) 18px; scrollbar-width: none; }
   .gallery::-webkit-scrollbar { display: none; }
   .gallery-item { flex: 0 0 78vw; margin: 0; scroll-snap-align: center; display: flex; flex-direction: column; }
   .gallery-item picture { aspect-ratio: 4 / 3; }
   .gallery-item img { height: 100%; object-fit: cover; object-position: 50% 30%; }
-  .gallery-note::before { content: "← 横にスワイプできます　"; color: var(--brand-strong); font-weight: 700; }
+  .gallery-note { display: block; }
+  .gallery-note::before { content: "← 横にスワイプできます"; color: var(--brand-strong); font-weight: 700; }
+}
+
+/* ---------- Partnership（都政との連携） ---------- */
+.partner { background: linear-gradient(180deg, #fff 0%, var(--mint) 100%); }
+.partner-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: center; }
+.partner-photo { margin: 0; position: relative; }
+.partner-photo .photo { position: relative; border-radius: 26px; overflow: hidden; background: #f3f3f1; box-shadow: 0 34px 60px -40px rgba(5, 56, 34, .55); }
+.partner-photo .photo::before { content: ""; position: absolute; inset: auto 0 0 0; height: 38%; z-index: 1; background: linear-gradient(0deg, rgba(0, 160, 65, .16), rgba(0, 160, 65, 0)); pointer-events: none; }
+.partner-photo img { width: 100%; height: auto; }
+.partner-photo figcaption { margin-top: 12px; font-size: 13px; color: var(--ink-3); text-align: center; }
+.partner-body h2 { font-size: clamp(1.65rem, 3.5vw, 2.5rem); color: var(--ink); }
+.partner-body .lead { margin-top: 18px; color: var(--ink-2); }
+.partner-points { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 12px; }
+.partner-points li { display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: start; background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; }
+.partner-points b { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: var(--brand-strong); color: #fff; font-family: var(--en); font-weight: 600; font-size: 1.1rem; }
+.partner-points h3 { font-size: 1.05rem; color: var(--ink); margin: 2px 0 4px; }
+.partner-points p { margin: 0; font-size: .93rem; color: var(--ink-2); line-height: 1.75; }
+.partner-card { margin-top: 18px; background: var(--white); border: 2px solid var(--brand); border-radius: 18px; padding: 20px 22px; }
+.partner-name { margin: 0 0 10px; font-family: var(--display); font-weight: 900; font-size: 1.5rem; color: var(--ink); line-height: 1.35; letter-spacing: .04em; }
+.partner-name small { display: block; font-family: var(--sans); font-size: 12px; font-weight: 800; color: var(--brand-strong); letter-spacing: .04em; }
+.partner-name span { margin-left: 10px; font-family: var(--sans); font-size: 12px; font-weight: 700; color: var(--ink-3); letter-spacing: .14em; }
+.partner-link { display: inline-block; margin-top: 10px; font-weight: 800; font-size: .95rem; }
+@media (max-width: 899px) {
+  .partner-grid { grid-template-columns: 1fr; gap: 30px; }
+  .partner-photo { max-width: 460px; margin: 0 auto; width: 100%; }
 }
 
 /* ---------- Profile ---------- */
