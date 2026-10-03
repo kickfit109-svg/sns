@@ -90,6 +90,8 @@
   // ---- スクロール連動：ヘッダー・進捗バー・トップへ戻る・視差 ----
   var toTop = document.querySelector('.to-top');
   var parallax = reduce ? [] : Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
+  // メインビジュアルの奥行き（人物・コピー・山並みをスクロール量に応じて別々の速さで動かす）
+  var depth = reduce ? [] : Array.prototype.slice.call(document.querySelectorAll('[data-depth]'));
   var ticking = false;
   var update = function () {
     var y = window.pageYOffset || document.documentElement.scrollTop;
@@ -100,6 +102,12 @@
     }
     if (toTop) toTop.classList.toggle('is-visible', y > 700);
     var vh = window.innerHeight;
+    if (y < vh * 1.4) {
+      depth.forEach(function (el) {
+        var d = parseFloat(el.getAttribute('data-depth')) || 0;
+        el.style.translate = '0 ' + (y * d).toFixed(1) + 'px';
+      });
+    }
     parallax.forEach(function (el) {
       var r = el.getBoundingClientRect();
       if (r.bottom < -100 || r.top > vh + 100) return;
