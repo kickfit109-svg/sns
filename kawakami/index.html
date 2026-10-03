@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add('js')</script>
+<script>document.documentElement.classList.add('js');setTimeout(function(){document.documentElement.classList.add('loaded')},2500)</script>
 <title>川上かずき｜都民ファーストの会 八王子 市政改革委員</title>
 <meta name="description" content="八王子で生まれ育ち、高校で体育を教え、少年野球の監督を務めながら二人の子を育てる川上かずき（都民ファーストの会 市政改革委員・八王子担当）。放課後の居場所、部活動の地域展開、子育ての時間の負担、若者の挑戦。八王子の子育て・教育・スポーツを現場から考える6つの政策。">
 <link rel="canonical" href="https://kawakami-kazuki.netlify.app/">
-<meta name="theme-color" content="#16386a">
+<meta name="theme-color" content="#00a041">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
@@ -25,7 +25,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700&amp;family=Outfit:wght@500;600;700&amp;display=swap">
 <link rel="preload" as="image" type="image/webp" href="assets/img/hero-960.webp" imagesrcset="assets/img/hero-600.webp 600w, assets/img/hero-960.webp 960w" imagesizes="(max-width: 899px) 420px, 460px">
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/main.js" defer></script>
@@ -80,8 +80,11 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="./" aria-label="川上かずき 公式サイト トップへ">
-      <span class="brand-name">川上かずき</span>
-      <span class="brand-role">都民ファーストの会 市政改革委員（八王子担当）</span>
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"><path d="M21 14v19c0 8-2.5 13-6.5 17"/><path d="M33 19v22"/><path d="M46 12v39"/></svg></span>
+      <span class="brand-text">
+        <span class="brand-name">川上かずき</span>
+        <span class="brand-role">都民ファーストの会 市政改革委員（八王子担当）</span>
+      </span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <span class="nav-toggle-bars" aria-hidden="true"></span>メニュー
@@ -97,71 +100,92 @@
       </ul>
     </nav>
   </div>
+  <span class="scroll-progress" aria-hidden="true"></span>
 </header>
 
 <main id="main">
 
 <!-- ===== ヒーロー ===== -->
 <section class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true">
+    <span class="blob blob-1"></span><span class="blob blob-2"></span><span class="blob blob-3"></span>
+    <div class="hero-outline"><span>KAWAKAMI KAZUKI</span><span>HACHIOJI</span><span>KAWAKAMI KAZUKI</span><span>HACHIOJI</span></div>
+  </div>
   <div class="wrap hero-grid">
     <div class="hero-text">
-      <p class="hero-role">都民ファーストの会　市政改革委員（八王子担当）</p>
+      <p class="hero-role" data-anim="fade" style="--delay:.05s">都民ファーストの会　市政改革委員（八王子担当）</p>
       <h1 id="hero-title">
-        <span class="hero-copy">この街で<em>育ち</em>、<br>この街で<em>育てる</em>。</span>
-        <span class="hero-name"><span class="hero-name-main">川上かずき</span><span class="hero-name-kana">かわかみ かずき</span></span>
+        <span class="hero-copy"><span class="line"><span>この街で<em>育ち</em>、</span></span><span class="line"><span>この街で<em>育てる</em>。</span></span></span>
+        <span class="hero-name" data-anim="blur" style="--delay:.75s"><span class="hero-name-main">川上かずき</span><span class="hero-name-kana">かわかみ かずき</span></span>
       </h1>
-      <p class="hero-lead">八王子で生まれ育ち、いまは高校で体育を教え、少年野球の監督を務めながら、二人の子どもを育てています。わが子を育て、地域の子どもを育てる毎日のなかで見えてきたことを、市政に届けます。</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#policy">6つの政策を見る</a>
+      <p class="hero-lead" data-anim="up" style="--delay:.95s">八王子で生まれ育ち、いまは高校で体育を教え、少年野球の監督を務めながら、二人の子どもを育てています。わが子を育て、地域の子どもを育てる毎日のなかで見えてきたことを、市政に届けます。</p>
+      <div class="hero-cta" data-anim="up" style="--delay:1.1s">
+        <a class="btn btn-primary" href="#policy">6つの政策を見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-ghost" href="#voice">ご意見を送る</a>
       </div>
     </div>
     <figure class="hero-photo">
-      <picture>
-        <source type="image/webp" srcset="assets/img/hero-600.webp 600w, assets/img/hero-960.webp 960w" sizes="(max-width: 899px) 420px, 460px">
-        <img src="assets/img/hero-960.jpg" width="960" height="1200" alt="スーツ姿で笑顔を見せる川上かずき" fetchpriority="high">
-      </picture>
+      <span class="frame" aria-hidden="true"></span>
+      <div class="photo">
+        <picture>
+          <source type="image/webp" srcset="assets/img/hero-600.webp 600w, assets/img/hero-960.webp 960w" sizes="(max-width: 899px) 400px, 470px">
+          <img src="assets/img/hero-960.jpg" width="960" height="1200" alt="スーツ姿で笑顔を見せる川上かずき" fetchpriority="high">
+        </picture>
+      </div>
       <figcaption><small>八王子生まれ・八王子育ち</small>高校体育講師・二児の父</figcaption>
+      <div class="badge" aria-hidden="true">
+        <svg class="badge-ring" viewBox="0 0 128 128"><defs><path id="badge-circle" d="M64,64 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs><text textLength="312" lengthAdjust="spacing"><textPath href="#badge-circle">HACHIOJI ・ TOMIN FIRST ・ KAWAKAMI ・ </textPath></text></svg>
+        <span class="badge-core"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12c0-4 3-7 8-7 0 5-3 7-8 7z"/><path d="M12 14.5c0-3-2.5-5.5-7-5.5 0 4 2.5 5.5 7 5.5z"/></svg></span>
+      </div>
     </figure>
   </div>
+  <a class="scroll-cue" href="#genba" data-anim="fade" style="--delay:1.4s">SCROLL<i aria-hidden="true"></i></a>
 </section>
 
-<div class="values">
-  <ul class="wrap" aria-label="めざす八王子">
-    <li>子どもが育つ。</li>
-    <li>スポーツを楽しむ。</li>
-    <li>若者が挑戦する。</li>
-  </ul>
+<div class="marquee">
+  <div class="marquee-track">
+    <ul class="marquee-list" aria-label="めざす八王子">
+      <li>子どもが育つ。</li><li>スポーツを楽しむ。</li><li>親の負担が軽くなる。</li><li>若者が挑戦する。</li><li>みんなで街を盛り上げる。</li>
+    </ul>
+    <ul class="marquee-list" aria-hidden="true">
+      <li>子どもが育つ。</li><li>スポーツを楽しむ。</li><li>親の負担が軽くなる。</li><li>若者が挑戦する。</li><li>みんなで街を盛り上げる。</li>
+    </ul>
+  </div>
 </div>
 
 <!-- ===== 現場から ===== -->
 <section class="section" id="genba" aria-labelledby="genba-title">
   <div class="wrap">
     <div class="section-head reveal">
+      <span class="en" aria-hidden="true">On the Ground</span>
       <p class="eyebrow">現場から</p>
       <h2 id="genba-title" class="phr"><span>すでに、</span><span>この街の現場にいます。</span></h2>
       <p class="lead">教育、子育て、地域スポーツ、そして小さな起業。経歴を並べるためではなく、毎日どこに立っているかを知っていただきたくて、4つの現場をご紹介します。</p>
     </div>
-    <ul class="genba-grid">
+    <ul class="genba-grid" data-stagger>
       <li class="genba-card reveal">
+        <span class="genba-num" aria-hidden="true">01</span>
         <div class="genba-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5.5c2.5-1 5.5-1 9 1 3.5-2 6.5-2 9-1v13c-2.5-1-5.5-1-9 1-3.5-2-6.5-2-9-1z"/><path d="M12 6.5v13"/></svg></div>
         <p class="genba-label">教育</p>
         <h3>高校の体育講師</h3>
         <p>学校で毎日、子どもたちと向き合っています。部活動の地域展開をはじめ、教育の現場がいま大きく変わろうとしていることを、内側から感じています。</p>
       </li>
       <li class="genba-card reveal">
+        <span class="genba-num" aria-hidden="true">02</span>
         <div class="genba-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="5.5" r="2.5"/><path d="M4 21v-6.5a4 4 0 0 1 8 0V21"/><circle cx="17" cy="10" r="2"/><path d="M14 21v-4a3 3 0 0 1 6 0v4"/></svg></div>
         <p class="genba-label">子育て</p>
         <h3>二人の子どもの父</h3>
         <p>保育や学童、送り迎え、休日の過ごし方。子育て世帯には、お金と同じくらい「時間」が足りない。そのことを、当事者として実感しています。</p>
       </li>
       <li class="genba-card reveal">
+        <span class="genba-num" aria-hidden="true">03</span>
         <div class="genba-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M6.5 5c1.8 1.9 2.8 4.3 2.8 7s-1 5.1-2.8 7"/><path d="M17.5 5c-1.8 1.9-2.8 4.3-2.8 7s1 5.1 2.8 7"/></svg></div>
         <p class="genba-label">地域スポーツ</p>
         <h3>少年野球の監督・代表</h3>
         <p>子どもたちの指導だけでなく、チームの運営も担っています。地域のスポーツを「続ける側」の大変さと、その価値を知っています。</p>
       </li>
       <li class="genba-card reveal">
+        <span class="genba-num" aria-hidden="true">04</span>
         <div class="genba-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12c0-4 3-7 8-7 0 5-3 7-8 7z"/><path d="M12 14.5c0-3-2.5-5.5-7-5.5 0 4 2.5 5.5 7 5.5z"/></svg></div>
         <p class="genba-label">挑戦</p>
         <h3>八王子でジムを開業</h3>
@@ -169,7 +193,7 @@
       </li>
     </ul>
     <div class="statement reveal">
-      <p class="phr"><span>「政治家になりたい」から</span><span>始めたのではありません。</span><br><span>この街で続けてきたことの</span><span class="em">延長線上に、</span><span class="em">市政があります。</span></p>
+      <p class="phr"><span>「政治家になりたい」から</span><span>始めたのではありません。</span><br><span>この街で続けてきたことの</span><span class="marker">延長線上に、</span><span class="marker">市政があります。</span></p>
     </div>
   </div>
 </section>
@@ -177,29 +201,34 @@
 <!-- ===== メッセージ ===== -->
 <section class="section section-alt" id="message" aria-labelledby="message-title">
   <div class="wrap message-grid">
-    <figure class="message-photo reveal">
-      <picture>
-        <source type="image/webp" srcset="assets/img/field-portrait-800.webp">
-        <img src="assets/img/field-portrait-800.jpg" width="800" height="1000" alt="屋外で笑顔を見せる、ジャージ姿の川上かずき" loading="lazy" decoding="async">
-      </picture>
+    <figure class="message-photo">
+      <div class="photo reveal-wipe" data-parallax="0.06">
+        <picture>
+          <source type="image/webp" srcset="assets/img/field-portrait-800.webp">
+          <img src="assets/img/field-portrait-800.jpg" width="800" height="1000" alt="屋外で笑顔を見せる、ジャージ姿の川上かずき" loading="lazy" decoding="async">
+        </picture>
+        <figcaption aria-hidden="true">HACHIOJI</figcaption>
+      </div>
     </figure>
     <div class="message-body reveal">
+      <span class="en" aria-hidden="true">Message</span>
       <p class="eyebrow">メッセージ</p>
       <h2 id="message-title">わが子を育て、<br>地域の子どもを育てる。</h2>
       <p class="message-strong">私は八王子で生まれ、八王子で育ちました。</p>
       <p>いまは高校で体育を教え、少年野球の監督としてグラウンドに立ち、家に帰れば二人の子どもの父親です。地元・八王子でジムも立ち上げました。</p>
       <p>放課後の居場所、習い事や部活動の送り迎え、部活動のこれから、そして若い世代がこの街に残れるかどうか。どれもニュースの中の話ではなく、私自身の毎日のすぐそばにある課題です。</p>
       <p>八王子には、豊かな自然があり、たくさんの大学があり、地域のスポーツや商店街、そして地域で子どもを育てる力があります。それらをつなげば、子どもが育ち、スポーツを楽しめ、若者が挑戦できる街になる。私はそう考えています。</p>
-      <p class="message-strong phr"><span>若い世代が</span><span>「この街で暮らし続けたい」と</span><span>思える八王子へ。</span><br><span>現場で感じていることを、</span><span>まっすぐ市政に</span><span>届けていきます。</span></p>
+      <p class="message-strong accent phr"><span>若い世代が</span><span>「この街で暮らし続けたい」と</span><span>思える八王子へ。</span><br><span>現場で感じていることを、</span><span>まっすぐ市政に</span><span>届けていきます。</span></p>
       <p class="signature"><small>都民ファーストの会 市政改革委員（八王子担当）</small><span>川上かずき</span></p>
     </div>
   </div>
 </section>
 
 <!-- ===== 6つの政策 ===== -->
-<section class="section" id="policy" aria-labelledby="policy-title">
+<section class="section section-dots" id="policy" aria-labelledby="policy-title">
   <div class="wrap">
     <div class="section-head reveal">
+      <span class="en" aria-hidden="true">Policy</span>
       <p class="eyebrow">6つの政策</p>
       <h2 id="policy-title" class="phr"><span>若い世代が</span><span>「この街で</span><span>暮らし続けたい」と</span><span>思える八王子へ</span></h2>
       <p class="lead">あれもこれもではなく、自分が毎日立っている現場から語れることに絞りました。子ども、教育、スポーツ、若者、そして世代をつなぐ街づくり。6つの政策です。</p>
@@ -214,10 +243,10 @@
       <li><a href="#policy-6"><b>6</b>シニアの活躍</a></li>
     </ol>
 
-    <div class="policy-grid">
+    <div class="policy-grid" data-stagger>
       <article class="policy reveal" id="policy-1" aria-labelledby="policy-1-title">
         <header class="policy-head">
-          <span class="policy-no" aria-hidden="true">1</span>
+          <span class="policy-no" aria-hidden="true"><small>POLICY</small><b>01</b></span>
           <div>
             <h3 class="policy-title phr" id="policy-1-title"><span class="sr-only">政策1　</span><span>放課後を、</span><span>もっと楽しく。</span><span>もっと豊かに。</span></h3>
             <p class="policy-sub phr"><span>預かるだけではない、</span><span>体験できる放課後へ</span></p>
@@ -237,7 +266,7 @@
 
       <article class="policy reveal" id="policy-2" aria-labelledby="policy-2-title">
         <header class="policy-head">
-          <span class="policy-no" aria-hidden="true">2</span>
+          <span class="policy-no" aria-hidden="true"><small>POLICY</small><b>02</b></span>
           <div>
             <h3 class="policy-title phr" id="policy-2-title"><span class="sr-only">政策2　</span><span>スポーツで、</span><span>八王子を</span><span>もっと元気に。</span></h3>
             <p class="policy-sub">地域の子どもは地域で育てる</p>
@@ -257,7 +286,7 @@
 
       <article class="policy reveal" id="policy-3" aria-labelledby="policy-3-title">
         <header class="policy-head">
-          <span class="policy-no" aria-hidden="true">3</span>
+          <span class="policy-no" aria-hidden="true"><small>POLICY</small><b>03</b></span>
           <div>
             <h3 class="policy-title phr" id="policy-3-title"><span class="sr-only">政策3　</span><span>子育ての</span><span>『時間の負担』を</span><span>軽くする。</span></h3>
             <p class="policy-sub">子育てするなら八王子へ</p>
@@ -277,7 +306,7 @@
 
       <article class="policy reveal" id="policy-4" aria-labelledby="policy-4-title">
         <header class="policy-head">
-          <span class="policy-no" aria-hidden="true">4</span>
+          <span class="policy-no" aria-hidden="true"><small>POLICY</small><b>04</b></span>
           <div>
             <h3 class="policy-title phr" id="policy-4-title"><span class="sr-only">政策4　</span><span>若者が</span><span>『やってみたい』を</span><span>実現できる街、</span><span>八王子に。</span></h3>
             <p class="policy-sub">大学の街を、若者が残る街へ</p>
@@ -297,7 +326,7 @@
 
       <article class="policy reveal" id="policy-5" aria-labelledby="policy-5-title">
         <header class="policy-head">
-          <span class="policy-no" aria-hidden="true">5</span>
+          <span class="policy-no" aria-hidden="true"><small>POLICY</small><b>05</b></span>
           <div>
             <h3 class="policy-title phr" id="policy-5-title"><span class="sr-only">政策5　</span><span>みんなの</span><span>『やってみたい』が</span><span>街を変える</span><span>八王子へ。</span></h3>
             <p class="policy-sub">行政だけで街をつくらない</p>
@@ -317,7 +346,7 @@
 
       <article class="policy reveal" id="policy-6" aria-labelledby="policy-6-title">
         <header class="policy-head">
-          <span class="policy-no" aria-hidden="true">6</span>
+          <span class="policy-no" aria-hidden="true"><small>POLICY</small><b>06</b></span>
           <div>
             <h3 class="policy-title phr" id="policy-6-title"><span class="sr-only">政策6　</span><span>いくつになっても、</span><span>元気に楽しめる</span><span>八王子へ。</span></h3>
             <p class="policy-sub">シニアが地域で活躍する街に</p>
@@ -336,10 +365,16 @@
       </article>
     </div>
 
-    <div class="vision reveal">
-      <p class="vision-name"><small>私、</small>川上かずき</p>
-      <p>は、子どもが育つ。スポーツを楽しむ。親の負担が軽くなる。若者が挑戦する。そして、みんなで街を盛り上げる。<strong class="phr"><span>若い世代が</span><span>「この街で暮らし続けたい」と</span><span>思える八王子を</span><span>つくります。</span></strong></p>
-    </div>
+  </div>
+</section>
+
+<!-- ===== めざす八王子 ===== -->
+<section class="vision-band" aria-label="めざす八王子">
+  <div class="vision-rings" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="wrap" data-stagger>
+    <p class="vision-kicker reveal">OUR VISION</p>
+    <p class="vision-name reveal"><small>私、</small>川上かずきは、</p>
+    <p class="vision-text reveal">子どもが育つ。スポーツを楽しむ。親の負担が軽くなる。若者が挑戦する。そして、みんなで街を盛り上げる。<strong class="phr"><span>若い世代が</span><span>「この街で暮らし続けたい」と</span><span>思える八王子を</span><span>つくります。</span></strong></p>
   </div>
 </section>
 
@@ -347,6 +382,7 @@
 <section class="section section-alt" id="profile" aria-labelledby="profile-title">
   <div class="wrap">
     <div class="section-head reveal">
+      <span class="en" aria-hidden="true">Profile</span>
       <p class="eyebrow">プロフィール</p>
       <h2 id="profile-title" class="phr"><span>八王子で育ち、</span><span>働き、</span><span>子どもを育てる。</span></h2>
     </div>
@@ -395,6 +431,7 @@
   <div class="wrap">
     <a class="guide-promo reveal" href="gikai/">
       <div>
+        <span class="en" aria-hidden="true">Guide</span>
         <p class="eyebrow">市政を身近に</p>
         <h2 class="phr"><span>八王子市議会って、</span><span>なにをしているところ？</span></h2>
         <p>市議会議員の仕事、4つの常任委員会、傍聴のしかた、請願・陳情の出し方まで。はじめての方向けにまとめました。</p>
@@ -408,6 +445,7 @@
 <section class="section section-alt" id="voice" aria-labelledby="voice-title">
   <div class="wrap voice-grid">
     <div class="voice-intro reveal">
+      <span class="en" aria-hidden="true">Voice</span>
       <p class="eyebrow">ご意見募集</p>
       <h2 id="voice-title">八王子への声を、<br>聞かせてください。</h2>
       <p>子育てのこと、学校や部活動のこと、地域のスポーツのこと、まちのこと。「こうなったらいいのに」という小さな声こそ、政策のヒントになります。いただいたご意見には一つひとつ目を通し、政策づくりと活動に生かします。</p>
@@ -490,8 +528,10 @@
         </ul>
       </nav>
     </div>
+    <p class="footer-outline" aria-hidden="true">KAWAKAMI KAZUKI</p>
     <p class="copyright">© 2026 川上かずき</p>
   </div>
 </footer>
+<a class="to-top" href="#main" aria-label="ページの先頭へ戻る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
 </body>
 </html>

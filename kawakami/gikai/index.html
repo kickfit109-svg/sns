@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>document.documentElement.classList.add('js')</script>
+<script>document.documentElement.classList.add('js');setTimeout(function(){document.documentElement.classList.add('loaded')},2500)</script>
 <title>八王子市議会ってどんなところ？市議会議員の仕事・委員会・傍聴・請願のしかた｜川上かずき</title>
 <meta name="description" content="八王子市議会のしくみを、はじめての方向けにまとめました。市議会議員の定数（40人）と任期、仕事の中身、4つの常任委員会、定例会、本会議・委員会の傍聴のしかた、インターネット中継、請願・陳情の出し方まで。">
 <link rel="canonical" href="https://kawakami-kazuki.netlify.app/gikai/">
-<meta name="theme-color" content="#16386a">
+<meta name="theme-color" content="#00a041">
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ja_JP">
@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600;700&amp;family=Outfit:wght@500;600;700&amp;display=swap">
 <link rel="stylesheet" href="../assets/style.css">
 <script src="../assets/main.js" defer></script>
 
@@ -67,8 +67,11 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="../" aria-label="川上かずき 公式サイト トップへ">
-      <span class="brand-name">川上かずき</span>
-      <span class="brand-role">都民ファーストの会 市政改革委員（八王子担当）</span>
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"><path d="M21 14v19c0 8-2.5 13-6.5 17"/><path d="M33 19v22"/><path d="M46 12v39"/></svg></span>
+      <span class="brand-text">
+        <span class="brand-name">川上かずき</span>
+        <span class="brand-role">都民ファーストの会 市政改革委員（八王子担当）</span>
+      </span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
       <span class="nav-toggle-bars" aria-hidden="true"></span>メニュー
@@ -84,6 +87,7 @@
       </ul>
     </nav>
   </div>
+  <span class="scroll-progress" aria-hidden="true"></span>
 </header>
 
 <main id="main">
@@ -93,6 +97,7 @@
         <li><a href="../">トップ</a></li>
         <li aria-current="page">八王子市議会ガイド</li>
       </ol>
+      <span class="en" aria-hidden="true">Guide</span>
       <p class="eyebrow">市政を身近に</p>
       <h1 class="phr"><span>はじめての</span><span>八王子市議会ガイド</span></h1>
       <p class="lead">市の予算や条例を決めている八王子市議会。何をしているところで、どうすれば私たちの声を届けられるのか。子育て中の方や若い世代にも分かるように、まとめました。</p>
@@ -125,11 +130,11 @@
       </div>
 
       <h2 id="numbers">数字で見る八王子市議会</h2>
-      <ul class="stats">
-        <li><b>40<small>人</small></b><span>議員の定数</span></li>
-        <li><b>4<small>年</small></b><span>議員の任期</span></li>
-        <li><b>4<small>つ</small></b><span>常任委員会</span></li>
-        <li><b>4<small>回</small></b><span>年間の定例会</span></li>
+      <ul class="stats" data-stagger>
+        <li class="reveal"><b><span data-count="40">40</span><small>人</small></b><span>議員の定数</span></li>
+        <li class="reveal"><b><span data-count="4">4</span><small>年</small></b><span>議員の任期</span></li>
+        <li class="reveal"><b><span data-count="4">4</span><small>つ</small></b><span>常任委員会</span></li>
+        <li class="reveal"><b><span data-count="4">4</span><small>回</small></b><span>年間の定例会</span></li>
       </ul>
 
       <h2 id="work">市議会議員の仕事</h2>
@@ -268,8 +273,10 @@
         </ul>
       </nav>
     </div>
+    <p class="footer-outline" aria-hidden="true">KAWAKAMI KAZUKI</p>
     <p class="copyright">© 2026 川上かずき</p>
   </div>
 </footer>
+<a class="to-top" href="#main" aria-label="ページの先頭へ戻る"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
 </body>
 </html>
