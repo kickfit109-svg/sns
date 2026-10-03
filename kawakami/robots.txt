@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /thanks/
+
+Sitemap: https://kawakami-kazuki.netlify.app/sitemap.xml
