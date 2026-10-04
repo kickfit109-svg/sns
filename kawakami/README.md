@@ -92,9 +92,21 @@ kawakami/
 - 両角さんの紹介は、公開情報（都議会・本人公式サイト・報道）で確認できた事実だけにしています：八王子市出身／八王子市・横浜市の職員を経て八王子市議会議員（4期）／東京都議会議員（3期）・予算特別委員長などを歴任／都民ファーストの会
 - ⚠️ 制作環境からは両角さんの公式サイトを直接開けなかったため、**公開前に両角さん側（事務所）に文面と写真の掲載の確認を取ってください**（COMPLIANCE.md の5-4）
 
-### SNS のURL（要設定）
-SNSアイコンは **まだリンク先が入っていません**（押しても何も起きない状態にしてあります）。`index.html` などで `data-sns="instagram"` のように書かれた `href="#"` を、実際のURLに置き換えてください。使っていないSNSは `<li>…</li>` ごと削除してください。
-- ⚠️ **ジムの公式LINE・Instagram は使わないでください**（事業と政治活動を混ぜないため。COMPLIANCE.md の5）。政治活動用のアカウントを作ってリンクしてください。
+### SNS のリンク
+トップのSNSカードとメニューのアイコンに、次のリンクを設定済みです（追跡用のパラメータは外してあります）。Podcast は使っていないので、ボタンはありません。
+
+| ボタン | リンク先 |
+|---|---|
+| X | https://x.com/teng_kazuki |
+| Instagram | https://www.instagram.com/the.o_teng.802/ |
+| Facebook | https://www.facebook.com/share/1DDfvf358J/ |
+| TikTok | https://www.tiktok.com/@kickfit109takao |
+| YouTube | https://www.youtube.com/@o_teng.kazuki |
+| LINE | https://lin.ee/94ALCnY |
+
+- リンクを変えるときは、各ページの `data-sns="x"` などと書かれた `<a>` の `href` を書き換えます（全ページ共通なので、`index.html`・`gikai/`・`privacy/`・`thanks/`・`404.html` のすべてで）。使わないSNSは、`<li>…</li>` ごと削除してください。
+- Google などの検索で「同じ人のアカウント」と分かるように、`index.html` の構造化データ（`sameAs`）にも同じURLを入れています。変更したら、そちらも合わせてください。
+- ⚠️ **TikTok の `@kickfit109takao` は、名前からジム（Kick Fit 109）のアカウントに見えます。** ジムのアカウントをリンクすると、事業と政治活動が混ざります（COMPLIANCE.md の5）。ジム用なら、政治活動用のアカウントを別に作るか、このボタンを外すことをおすすめします。LINE（`lin.ee/94ALCnY`）が政治活動用の個人のアカウントかどうかも、公開前に確認してください。
 
 ### お知らせの追加方法
 `index.html` の `<ul class="news-list">` の中に、次の形で **先頭に** 追加してください（新しいものが上）。
@@ -149,7 +161,7 @@ SNSアイコンは **まだリンク先が入っていません**（押しても
       ./set-domain.sh https://（実際のURL）
       ```
 - [ ] **ご意見フォームの通知設定**（Netlify の場合、下記）
-- [ ] **SNSのURLを設定**（上の「SNS のURL」）
+- [ ] **SNSのリンク先を確認**：TikTok が政治活動用か（ジム用なら外す）、各リンクが開くか（上の「SNS のリンク」）
 - [ ] **キャラクターの権利を確認**（COMPLIANCE.md の5）
 
 ## プレビュー（確認用のHTML）
