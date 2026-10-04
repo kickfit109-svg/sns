@@ -2,7 +2,7 @@
 
 使い方:  pip install numpy scipy matplotlib pillow
          python3 tools/make_background.py kawakami/assets/img/
-         （PNGが出力されるので、WebPに変換して mv-landscape.webp / mv-portrait.webp に置き換える）
+         （下地のPNGが出力されます。続けて tools/compose_brush.py で筆を重ね、WebPに変換して mv-landscape.webp / mv-portrait.webp に置き換える）
 
 トップページ用の背景：八王子の山並み＋地図の等高線をモチーフにした緑のグラフィック。
 （筆のストロークではなく、等高線・光・山の稜線で構成）"""
