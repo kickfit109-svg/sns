@@ -189,8 +189,9 @@ kawakami/
 
 ## 公開手順（Netlify）
 
-1. Netlify で新しいサイトを作成し、`kawakami/` フォルダをドラッグ＆ドロップ
-   （GitHub 連携なら Base directory を `kawakami` に）
+1. Netlify で新しいサイトを作成し、**内部用の資料（`README.md`・`COMPLIANCE.md`・`set-domain.sh`）を除いた** `kawakami/` フォルダをドラッグ＆ドロップ
+   - `COMPLIANCE.md` には学校の了承や登記の確認など、外に出すべきでないメモが書いてあります。ドロップで公開するときは、必ずこの3つを抜いてください（納品の `kawakami-site.zip` は抜いた状態です）
+   - GitHub 連携なら Base directory を `kawakami` に。この場合は `netlify.toml` の設定で、3つのファイルは404になります
 2. サイト名を `kawakami-kazuki` にすると、`https://kawakami-kazuki.netlify.app` で公開されます
 3. **Forms**：管理画面 → Forms → 「Enable form detection」をオン → 再デプロイ
    → Forms → Form notifications → Email notification で、受け取りたいメールアドレスを設定

@@ -8,6 +8,26 @@
   status = 301
   force = true
 
+# 内部用の資料は公開しない（フォルダごと公開された場合の保険）
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/COMPLIANCE.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/set-domain.sh"
+  to = "/404.html"
+  status = 404
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
