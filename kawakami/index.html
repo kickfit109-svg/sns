@@ -39,7 +39,7 @@
       "@type": "Person",
       "@id": "https://kawakami-kazuki.netlify.app/#person",
       "name": "川上かずき",
-      "alternateName": ["川上一樹", "かわかみかずき", "川上 かずき"],
+      "alternateName": ["川上一樹", "かわかみかずき", "川上 かずき", "高尾の天狗"],
       "birthDate": "2000-10-02",
       "jobTitle": "都民ファーストの会 市政改革委員（八王子市担当）",
       "affiliation": { "@type": "PoliticalParty", "name": "都民ファーストの会", "url": "https://tomin1st.jp/" },
@@ -141,6 +141,7 @@
       <li><a href="#profile"><span class="menu-en">Profile</span>プロフィール</a></li>
       <li><a href="gikai/"><span class="menu-en">Guide</span>八王子市議会ガイド</a></li>
       <li><a href="#voice"><span class="menu-en">Voice</span>ご意見を送る</a></li>
+      <li><a href="#supporters"><span class="menu-en">Supporters</span>後援会メンバー募集</a></li>
     </ul>
     <div class="menu-side">
       <ul class="sns" aria-label="SNS">
@@ -789,6 +790,77 @@
   </div>
 </section>
 
+<!-- ===== 後援会メンバー募集 ===== -->
+<section class="supporters" id="supporters" aria-labelledby="supporters-title">
+  <div class="wrap sup-grid">
+    <div class="sup-intro reveal">
+      <span class="en" aria-hidden="true">Supporters</span>
+      <p class="eyebrow">後援会メンバー募集</p>
+      <p class="sup-nick">高尾の天狗</p>
+      <h2 id="supporters-title" class="phr"><span class="sup-name">川上かずき</span><span>を応援してくださる</span><span>メンバーを募集。</span></h2>
+      <p class="sup-lead phr"><span>ポスター掲示や</span><span>ビラ配りに</span><span>協力してください。</span></p>
+      <ul class="sup-ways">
+        <li><b>ポスター掲示</b><span>ご自宅やお店の壁・塀など、ポスターを貼らせていただける場所のご提供</span></li>
+        <li><b>ビラ配り</b><span>活動報告などのビラを、地域で配るお手伝い</span></li>
+        <li><b>そのほか</b><span>イベントの準備など、できることから</span></li>
+      </ul>
+      <ul class="sup-notes">
+        <li>ご協力は、すべてボランティアです（謝礼などはありません）。</li>
+        <li>18歳以上の方を対象としています。</li>
+      </ul>
+      <a class="sup-line" href="https://lin.ee/94ALCnY" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#i-line"/></svg>LINEからも受け付けています<span class="sr-only">（新しいタブで開きます）</span></a>
+    </div>
+
+    <form class="form sup-form reveal" name="supporter" method="POST" action="thanks-member/" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="supporter">
+      <p class="hp-field" aria-hidden="true"><label>この欄は入力しないでください <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <p class="sup-form-title">後援会メンバー 申し込み</p>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="s-name">お名前 <span class="req">必須</span></label>
+          <input type="text" id="s-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="s-kana">ふりがな <span class="opt">任意</span></label>
+          <input type="text" id="s-kana" name="kana">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="s-contact">ご連絡先 <span class="req">必須</span></label>
+        <input type="text" id="s-contact" name="contact" required placeholder="電話番号またはメールアドレス">
+        <p class="field-hint">後援会からのご連絡にのみ使用します。</p>
+      </div>
+
+      <div class="field">
+        <label for="s-area">お住まいの地域 <span class="opt">任意</span></label>
+        <input type="text" id="s-area" name="area" placeholder="例：高尾町、めじろ台">
+      </div>
+
+      <fieldset class="field sup-checks">
+        <legend>協力できること <span class="opt">任意・複数可</span></legend>
+        <label><input type="checkbox" name="help[]" value="ポスター掲示（場所の提供）"><span>ポスター掲示（場所の提供）</span></label>
+        <label><input type="checkbox" name="help[]" value="ビラ配り"><span>ビラ配り</span></label>
+        <label><input type="checkbox" name="help[]" value="そのほかのお手伝い"><span>そのほかのお手伝い</span></label>
+      </fieldset>
+
+      <div class="field">
+        <label for="s-message">ひとこと <span class="opt">任意</span></label>
+        <textarea id="s-message" name="message" class="textarea-s"></textarea>
+      </div>
+
+      <label class="consent"><input type="checkbox" name="consent" value="18歳以上・同意する" required><span>18歳以上で、<a href="privacy/">プライバシーポリシー</a>に同意のうえ申し込みます。</span></label>
+
+      <button class="btn btn-green" type="submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+        後援会に申し込む
+      </button>
+      <p class="form-note">お申し込みのあと、後援会からご連絡します。</p>
+    </form>
+  </div>
+</section>
+
 </main>
 
 <footer class="site-footer">
@@ -810,6 +882,7 @@
           <li><a href="#profile">プロフィール</a></li>
           <li><a href="gikai/">八王子市議会ガイド</a></li>
           <li><a href="#voice">ご意見を送る</a></li>
+          <li><a href="#supporters">後援会メンバー募集</a></li>
           <li><a href="privacy/">プライバシーポリシー</a></li>
           <li><a href="https://tomin1st.jp/" target="_blank" rel="noopener">都民ファーストの会 ↗</a></li>
         </ul>

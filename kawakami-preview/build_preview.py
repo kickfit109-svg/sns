@@ -11,6 +11,7 @@ kawakami/ の各ページを、CSS・JavaScript・画像をすべて埋め込ん
     kawakami-preview/gikai.html     … 八王子市議会ガイド
     kawakami-preview/privacy.html   … プライバシーポリシー
     kawakami-preview/thanks.html    … ご意見送信後の画面
+    kawakami-preview/thanks-member.html … 後援会申し込み後の画面
 
 ※ 公開用ではありません（公開は kawakami/ フォルダを使います）。
 ※ フォームはプレビューでは送信されず、送信完了画面に移動するだけです。
@@ -29,9 +30,11 @@ PAGES = {
     "gikai/index.html": "gikai.html",
     "privacy/index.html": "privacy.html",
     "thanks/index.html": "thanks.html",
+    "thanks-member/index.html": "thanks-member.html",
 }
 # サイト内リンク → プレビューのファイル名
-ROUTES = {"": "index.html", "gikai/": "gikai.html", "privacy/": "privacy.html", "thanks/": "thanks.html"}
+ROUTES = {"": "index.html", "gikai/": "gikai.html", "privacy/": "privacy.html", "thanks/": "thanks.html",
+          "thanks-member/": "thanks-member.html"}
 
 mimetypes.add_type("image/webp", ".webp")
 _cache = {}
@@ -119,6 +122,7 @@ def build(src_rel: str, out_name: str) -> int:
 
     # フォーム：プレビューでは送信せず完了画面へ
     html = html.replace('method="POST" action="thanks/"', 'method="GET" action="thanks.html"')
+    html = html.replace('method="POST" action="thanks-member/"', 'method="GET" action="thanks-member.html"')
 
     # プレビューの目印
     badge = ('<div style="position:fixed;left:10px;bottom:10px;z-index:99;padding:6px 12px;border-radius:999px;'
@@ -133,4 +137,4 @@ def build(src_rel: str, out_name: str) -> int:
 if __name__ == "__main__":
     for src, out in PAGES.items():
         size = build(src, out)
-        print(f"{out:14s} {size / 1024 / 1024:.2f} MB")
+        print(f"{out:20s} {size / 1024 / 1024:.2f} MB")
